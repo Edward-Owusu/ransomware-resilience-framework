@@ -2,6 +2,8 @@
 
 [![tests](https://github.com/Edward-Owusu/ransomware-resilience-framework/actions/workflows/tests.yml/badge.svg)](https://github.com/Edward-Owusu/ransomware-resilience-framework/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23195756.svg)](https://doi.org/10.5281/zenodo.23195756)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ransomware-resilience-framework.streamlit.app)
 
 An open-source tool that answers one question for **small and mid-sized organizations**: *if ransomware encrypted everything tonight, could we recover our critical systems in time?* It produces a **recovery-readiness score**, a **recovery timeline** comparing how long each system would take to restore with how long the business can be without it, and a prioritized list of fixes, based on CISA and NIST ransomware guidance and mapped to **NIST SP 800-53 Rev. 5**.
 
@@ -61,6 +63,8 @@ Open the HTML file in the `reports` folder for the gauge and timeline. Pre-gener
 pip install -r requirements.txt
 streamlit run app/streamlit_app.py
 ```
+
+Try the hosted version at https://ransomware-resilience-framework.streamlit.app, or run it locally:
 
 ### Use in automation
 
