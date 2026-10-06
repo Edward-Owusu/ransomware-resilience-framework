@@ -1,6 +1,6 @@
 # Ransomware recovery readiness: Riverbend Components (fictional)
 
-As of 2026-10-06 | 7 systems | Generated 2026-10-06 18:14 UTC
+As of 2026-10-06 | 7 systems | Generated 2026-10-06 18:57 UTC
 
 - Readiness: **29/100 (Highly vulnerable)** (systems 30, practices 26)
 - Systems that would miss their downtime target: **3**

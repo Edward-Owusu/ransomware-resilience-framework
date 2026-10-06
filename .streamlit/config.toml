@@ -1,8 +1,8 @@
-# Theme for this dashboard: charcoal with crimson accents, distinct from the other tools in the series.
+# Theme for this dashboard: crimson on soft blush white, distinct from the other tools in the series.
 [theme]
-base = "dark"
-primaryColor = "#E11D48"
-backgroundColor = "#18181B"
-secondaryBackgroundColor = "#27272A"
-textColor = "#F4F4F5"
+base = "light"
+primaryColor = "#BE123C"
+backgroundColor = "#FCF8F8"
+secondaryBackgroundColor = "#F6E8EA"
+textColor = "#2A1A1F"
 font = "sans serif"

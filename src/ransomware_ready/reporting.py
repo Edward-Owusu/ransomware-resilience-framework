@@ -15,8 +15,8 @@ DISCLAIMER = (
     "and should be confirmed by timed restore tests. It does not replace an incident response plan, legal "
     "counsel, or professional incident response support."
 )
-BAND_COLOR = {"Resilient": "#22c55e", "Partially resilient": "#eab308", "Vulnerable": "#f97316",
-              "Highly vulnerable": "#e11d48"}
+BAND_COLOR = {"Resilient": "#16a34a", "Partially resilient": "#ca8a04", "Vulnerable": "#ea580c",
+              "Highly vulnerable": "#be123c"}
 ANSWER_LABEL = {"yes": "In place", "partial": "Partly", "no": "Not in place", None: "Not answered"}
 
 
@@ -27,29 +27,29 @@ def gauge_svg(score: float, band: str, size: int = 260) -> str:
     filled = max(0.0, min(100.0, score)) / 100 * length
     color = BAND_COLOR.get(band, "#e11d48")
     return (f'<svg viewBox="0 0 240 150" width="{size}" role="img" aria-label="Readiness {score:.0f} of 100, {escape(band)}">'
-            f'<path d="M {cx - r} {cy} A {r} {r} 0 0 1 {cx + r} {cy}" fill="none" stroke="#3f3f46" stroke-width="18" stroke-linecap="round"/>'
+            f'<path d="M {cx - r} {cy} A {r} {r} 0 0 1 {cx + r} {cy}" fill="none" stroke="#ecdfe1" stroke-width="18" stroke-linecap="round"/>'
             f'<path d="M {cx - r} {cy} A {r} {r} 0 0 1 {cx + r} {cy}" fill="none" stroke="{color}" stroke-width="18" '
             f'stroke-linecap="round" stroke-dasharray="{filled:.1f} 999"/>'
-            f'<text x="{cx}" y="{cy - 18}" text-anchor="middle" font-size="44" font-weight="700" fill="#f4f4f5" '
+            f'<text x="{cx}" y="{cy - 18}" text-anchor="middle" font-size="44" font-weight="700" fill="#2a1a1f" '
             f'font-family="Segoe UI, Roboto, Arial, sans-serif">{score:.0f}</text>'
             f'<text x="{cx}" y="{cy + 6}" text-anchor="middle" font-size="13" fill="{color}" '
             f'font-family="Segoe UI, Roboto, Arial, sans-serif">{escape(band)}</text>'
-            f'<text x="{cx - r}" y="{cy + 26}" text-anchor="middle" font-size="11" fill="#a1a1aa">0</text>'
-            f'<text x="{cx + r}" y="{cy + 26}" text-anchor="middle" font-size="11" fill="#a1a1aa">100</text></svg>')
+            f'<text x="{cx - r}" y="{cy + 26}" text-anchor="middle" font-size="11" fill="#8a7378">0</text>'
+            f'<text x="{cx + r}" y="{cy + 26}" text-anchor="middle" font-size="11" fill="#8a7378">100</text></svg>')
 
 
 TIMELINE_CSS = """
-.tl{font:13px/1.4 "Segoe UI",Roboto,Arial,sans-serif;color:#e4e4e7}
+.tl{font:13px/1.4 "Segoe UI",Roboto,Arial,sans-serif;color:#3b2a2f}
 .tl .row{display:grid;grid-template-columns:200px 1fr 120px;gap:12px;align-items:center;margin:8px 0}
-.tl .nm b{display:block;color:#fafafa}.tl .nm span{color:#a1a1aa;font-size:12px}
-.tl .track{position:relative;height:22px;background:#27272a;border-radius:4px}
-.tl .own{position:absolute;top:0;height:100%;background:#e11d48;border-radius:4px}
-.tl .own.ok{background:#22c55e}
-.tl .wait{position:absolute;top:0;height:100%;background:repeating-linear-gradient(45deg,#71717a,#71717a 4px,#52525b 4px,#52525b 8px);border-radius:4px 0 0 4px}
-.tl .rto{position:absolute;top:-4px;bottom:-4px;width:3px;background:#fafafa}
-.tl .none{color:#fb7185;font-weight:600;padding-left:6px;line-height:22px}
-.tl .val{font-size:12px;color:#d4d4d8}
-.tl .legend{color:#a1a1aa;font-size:12px;margin-top:10px}
+.tl .nm b{display:block;color:#2a1a1f}.tl .nm span{color:#8a7378;font-size:12px}
+.tl .track{position:relative;height:22px;background:#f1e4e6;border-radius:4px}
+.tl .own{position:absolute;top:0;height:100%;background:#be123c;border-radius:4px}
+.tl .own.ok{background:#16a34a}
+.tl .wait{position:absolute;top:0;height:100%;background:repeating-linear-gradient(45deg,#b8a9ad,#b8a9ad 4px,#d6cacd 4px,#d6cacd 8px);border-radius:4px 0 0 4px}
+.tl .rto{position:absolute;top:-4px;bottom:-4px;width:3px;background:#2a1a1f}
+.tl .none{color:#be123c;font-weight:600;padding-left:6px;line-height:22px}
+.tl .val{font-size:12px;color:#5b464b}
+.tl .legend{color:#8a7378;font-size:12px;margin-top:10px}
 .tl .legend i{display:inline-block;width:12px;height:12px;vertical-align:-2px;margin:0 4px 0 12px;border-radius:2px}
 """
 
@@ -75,9 +75,9 @@ def timeline_html(r: Result) -> str:
         rows.append(f'<div class="row"><div class="nm"><b>{e(s.system)}</b><span>{e(s.criticality.title())}</span></div>'
                     f'<div class="track">{bar}<div class="rto" style="left:{rto_pos:.1f}%" title="Recovery time objective {s.rto_hours:g} h"></div></div>'
                     f'<div class="val">{val}</div></div>')
-    legend = ('<div class="legend"><i style="background:#22c55e"></i>Recovers within target'
-              '<i style="background:#e11d48"></i>Misses target<i style="background:#71717a"></i>Waiting for a dependency'
-              '<i style="background:#fafafa;width:3px"></i>Maximum tolerable downtime</div>')
+    legend = ('<div class="legend"><i style="background:#16a34a"></i>Recovers within target'
+              '<i style="background:#be123c"></i>Misses target<i style="background:#b8a9ad"></i>Waiting for a dependency'
+              '<i style="background:#2a1a1f;width:3px"></i>Maximum tolerable downtime</div>')
     return f'<div class="tl">{"".join(rows)}{legend}</div>'
 
 
@@ -120,30 +120,29 @@ def to_markdown(r: Result) -> str:
 
 _CSS = """
 *{box-sizing:border-box}
-body{margin:0;background:#18181b;color:#e4e4e7;font:15px/1.55 "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+body{margin:0;background:#fcf8f8;color:#2a1a1f;font:15px/1.55 "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 main{max-width:1060px;margin:0 auto;padding:34px 24px 60px}
-.kicker{color:#fb7185;text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin:0}
-h1{font-size:30px;margin:4px 0 2px;color:#fafafa}
-.sub{color:#a1a1aa;margin:0}
-h2{font-size:18px;margin:38px 0 14px;color:#fb7185;border-bottom:1px solid #3f3f46;padding-bottom:8px}
-.hero{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:center;margin-top:24px;background:#27272a;border:1px solid #3f3f46;border-radius:14px;padding:18px 24px}
+.kicker{color:#be123c;text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin:0;font-weight:600}
+h1{font-size:30px;margin:4px 0 2px}
+.sub{color:#8a7378;margin:0}
+h2{font-size:18px;margin:38px 0 14px;color:#be123c;border-bottom:1px solid #ecdfe1;padding-bottom:8px}
+.hero{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:center;margin-top:24px;background:#fff;border:1px solid #ecdfe1;border-top:5px solid #be123c;border-radius:14px;padding:18px 24px}
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.stat{background:#18181b;border:1px solid #3f3f46;border-radius:10px;padding:12px 14px}
-.stat b{display:block;font-size:26px;color:#fafafa}.stat span{color:#a1a1aa;font-size:13px}
-.panel{background:#27272a;border:1px solid #3f3f46;border-radius:14px;padding:16px 20px}
-.f{border-top:1px solid #3f3f46;padding:10px 0}.f:first-child{border-top:0}
+.stat{background:#fcf8f8;border:1px solid #ecdfe1;border-radius:10px;padding:12px 14px}
+.stat b{display:block;font-size:26px}.stat span{color:#8a7378;font-size:13px}
+.panel{background:#fff;border:1px solid #ecdfe1;border-radius:14px;padding:16px 20px}
+.f{border-top:1px solid #ecdfe1;padding:10px 0}.f:first-child{border-top:0}
 .f p{margin:2px 0}
-.sev{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;padding:1px 7px;border-radius:3px;color:#fff;background:#e11d48;margin-right:6px}
-.sev.high{background:#ea580c}.sev.medium{background:#ca8a04}.sev.low{background:#52525b}
-.muted{color:#a1a1aa}
+.sev{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;padding:1px 7px;border-radius:3px;color:#fff;background:#be123c;margin-right:6px}
+.sev.high{background:#ea580c}.sev.medium{background:#ca8a04}.sev.low{background:#78716c}
+.muted{color:#8a7378}
 .table-wrap{overflow-x:auto}
 table{border-collapse:collapse;width:100%;font-size:14px}
-th,td{border-bottom:1px solid #3f3f46;padding:8px 10px;text-align:left}
-th{color:#a1a1aa;font-weight:600}
-.a-yes{color:#4ade80}.a-partial{color:#facc15}.a-no,.a-None{color:#fb7185}
-.note{color:#a1a1aa;font-size:13px;margin-top:30px}
+th,td{border-bottom:1px solid #ecdfe1;padding:8px 10px;text-align:left}
+th{color:#8a7378;font-weight:600}
+.a-yes{color:#16a34a;font-weight:600}.a-partial{color:#ca8a04;font-weight:600}.a-no,.a-None{color:#be123c;font-weight:600}
+.note{color:#8a7378;font-size:13px;margin-top:30px}
 @media(max-width:760px){.hero{grid-template-columns:1fr}}
-@media print{body{background:#fff;color:#111}}
 """
 
 

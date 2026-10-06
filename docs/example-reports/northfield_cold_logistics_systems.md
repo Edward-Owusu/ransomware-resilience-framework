@@ -1,6 +1,6 @@
 # Ransomware recovery readiness: Northfield Cold Logistics (fictional)
 
-As of 2026-10-06 | 6 systems | Generated 2026-10-06 18:14 UTC
+As of 2026-10-06 | 6 systems | Generated 2026-10-06 18:57 UTC
 
 - Readiness: **99/100 (Resilient)** (systems 100, practices 97)
 - Systems that would miss their downtime target: **0**
