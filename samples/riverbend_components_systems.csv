@@ -1,0 +1,8 @@
+system,owner,business_function,criticality,rto_hours,rpo_hours,backup_type,backup_frequency_hours,offline_or_immutable,backup_encrypted,separate_backup_credentials,backup_monitored,last_restore_test_date,restore_time_hours,restore_time_measured,depends_on
+Active Directory,Jim Miller,Sign-in for all computers and servers,critical,8,24,image,24,false,false,false,false,,12,false,
+ERP server,Jim Miller,Orders production scheduling and shipping,critical,24,4,image,24,false,false,false,true,2025-02-10,16,true,Active Directory
+File server,Jim Miller,Engineering drawings and shared documents,high,24,24,file,24,false,false,false,true,,10,false,Active Directory
+CNC program PC,Shop lead,Machine programs for the production floor,high,12,168,none,,,,,,,,,
+Email and files (cloud),Jim Miller,Email and cloud file storage,high,8,24,saas,24,true,true,,true,2026-04-02,4,true,
+Payroll (vendor hosted),Dana Reyes,Payroll and HR,medium,72,24,saas,24,true,true,,true,,8,false,
+Accounting workstation,Controller,Accounting software and records,high,24,24,file,168,false,false,false,false,,6,false,Active Directory

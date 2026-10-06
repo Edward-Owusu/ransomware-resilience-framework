@@ -1,0 +1,7 @@
+system,owner,business_function,criticality,rto_hours,rpo_hours,backup_type,backup_frequency_hours,offline_or_immutable,backup_encrypted,separate_backup_credentials,backup_monitored,last_restore_test_date,restore_time_hours,restore_time_measured,depends_on
+Identity (cloud directory),Lin Chen,Sign-in for all users and devices,critical,4,24,saas,24,true,true,,true,2026-05-14,2,true,
+Warehouse management (WMS),Pat Ward,Inventory locations orders and shipping,critical,8,1,replica,1,true,true,true,true,2026-06-20,4,true,Identity (cloud directory)
+Refrigeration monitoring,Facilities,Temperature control and alarms,critical,2,24,image,24,true,true,true,true,2026-03-03,1.5,true,
+File server,Lin Chen,Shared documents and compliance records,high,24,24,image,12,true,true,true,true,2026-07-09,6,true,Identity (cloud directory)
+Email and files (cloud),Lin Chen,Email and cloud file storage,high,8,24,saas,24,true,true,,true,2026-02-11,3,true,Identity (cloud directory)
+Accounting (cloud),Hana Kim,Accounting and records,medium,48,24,saas,24,true,true,,true,2025-11-20,6,true,

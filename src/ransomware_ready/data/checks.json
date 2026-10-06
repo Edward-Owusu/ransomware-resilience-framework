@@ -1,0 +1,35 @@
+{
+  "sources": "Practices drawn from the CISA #StopRansomware Guide and NIST IR 8374, Ransomware Risk Management: A Cybersecurity Framework Profile. Control references are NIST SP 800-53 Rev. 5.",
+  "system_checks": [
+    {"id": "RR-01", "title": "No backup", "severity": "critical", "penalty": 100, "controls": ["CP-9"],
+     "remediation": "Start backing up this system now, with at least one copy kept offline or immutable."},
+    {"id": "RR-02", "title": "No offline or immutable backup copy", "severity": "critical", "penalty": 30, "controls": ["CP-9"],
+     "remediation": "Keep at least one backup copy that ransomware cannot reach: offline media, an immutable cloud bucket, or a backup service with object lock."},
+    {"id": "RR-03", "title": "Backups run less often than the data you can afford to lose", "severity": "high", "penalty": 15, "controls": ["CP-9", "CP-2"],
+     "remediation": "Increase backup frequency, or use snapshots or replication, so the backup interval is within the recovery point objective."},
+    {"id": "RR-04", "title": "Recovery would take longer than the business can be down", "severity": "high", "penalty": 20, "controls": ["CP-10", "CP-2"],
+     "remediation": "Shorten recovery: restore from local snapshots, pre-build replacement servers, document the restore steps, or agree a realistic downtime target with the business."},
+    {"id": "RR-05", "title": "Restore not tested in the last 12 months", "severity": "high", "penalty": 15, "controls": ["CP-4", "CP-9(1)"],
+     "remediation": "Restore this system to a test environment, confirm the data is usable, and record how long it took."},
+    {"id": "RR-06", "title": "Recovery time is an estimate, not measured", "severity": "medium", "penalty": 5, "controls": ["CP-4"],
+     "remediation": "Time a real restore so the recovery plan is based on evidence rather than a guess."},
+    {"id": "RR-07", "title": "Backups use the same credentials as production", "severity": "high", "penalty": 10, "controls": ["AC-6", "CP-9"],
+     "remediation": "Give the backup system its own accounts, not joined to the production domain, protected with MFA."},
+    {"id": "RR-08", "title": "Backup jobs are not monitored for failures", "severity": "medium", "penalty": 5, "controls": ["CP-9"],
+     "remediation": "Turn on backup failure alerts and have someone review them daily."},
+    {"id": "RR-09", "title": "Backups are not encrypted", "severity": "medium", "penalty": 5, "controls": ["CP-9(8)", "SC-28"],
+     "remediation": "Encrypt backups so a stolen copy cannot be read or used for extortion."}
+  ],
+  "practices": [
+    {"id": "P-01", "label": "Incident response plan with a ransomware playbook", "weight": 2, "controls": ["IR-8", "IR-4"]},
+    {"id": "P-02", "label": "Offline or printed copy of the response plan and key contacts", "weight": 1, "controls": ["IR-8", "CP-2"]},
+    {"id": "P-03", "label": "MFA on remote access and email", "weight": 3, "controls": ["IA-2(1)", "IA-2(2)", "AC-17"]},
+    {"id": "P-04", "label": "MFA and separate accounts for backup administration", "weight": 2, "controls": ["AC-6", "IA-2(1)"]},
+    {"id": "P-05", "label": "Endpoint protection on all computers and servers", "weight": 2, "controls": ["SI-3"]},
+    {"id": "P-06", "label": "Internet-facing systems (VPN, firewall, remote access) patched promptly", "weight": 2, "controls": ["SI-2", "RA-5"]},
+    {"id": "P-07", "label": "Email filtering and phishing awareness training", "weight": 1, "controls": ["SI-8", "AT-2"]},
+    {"id": "P-08", "label": "Network segmentation separating backups and critical systems", "weight": 2, "controls": ["SC-7"]},
+    {"id": "P-09", "label": "Administrator accounts separate from everyday accounts", "weight": 1, "controls": ["AC-6"]},
+    {"id": "P-10", "label": "Ransomware tabletop exercise in the last 12 months", "weight": 1, "controls": ["IR-3", "CP-4"]}
+  ]
+}

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "ransomware_ready: Ransomware Recovery Readiness Assessment for Small and Mid-Sized Organizations"
+authors:
+  - family-names: Owusu
+    given-names: Edward
+version: 0.1.0
+date-released: 2026-10-06
+license: MIT
+repository-code: "https://github.com/Edward-Owusu/ransomware-resilience-framework"
+keywords:
+  - ransomware
+  - backup and recovery
+  - recovery time objective
+  - cyber resilience
+  - NIST SP 800-53
+  - small business

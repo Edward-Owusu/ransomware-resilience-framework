@@ -1,0 +1,6 @@
+{
+  "_comment": "Synthetic data for demonstration only.",
+  "organization": "Riverbend Components (fictional)",
+  "practices": {"P-01": "no", "P-02": "no", "P-03": "partial", "P-04": "no", "P-05": "partial",
+                "P-06": "partial", "P-07": "yes", "P-08": "no", "P-09": "no", "P-10": "no"}
+}

@@ -1,0 +1,2 @@
+system,owner,business_function,criticality,rto_hours,rpo_hours,backup_type,backup_frequency_hours,offline_or_immutable,backup_encrypted,separate_backup_credentials,backup_monitored,last_restore_test_date,restore_time_hours,restore_time_measured,depends_on
+Example system,Owner name,What the business uses it for,critical,24,24,image,24,true,true,true,true,2026-01-15,8,true,

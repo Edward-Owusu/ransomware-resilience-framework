@@ -1,0 +1,6 @@
+{
+  "_comment": "Synthetic data for demonstration only.",
+  "organization": "Northfield Cold Logistics (fictional)",
+  "practices": {"P-01": "yes", "P-02": "yes", "P-03": "yes", "P-04": "yes", "P-05": "yes",
+                "P-06": "yes", "P-07": "yes", "P-08": "yes", "P-09": "yes", "P-10": "partial"}
+}

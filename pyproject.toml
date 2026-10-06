@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ransomware-ready"
+version = "0.1.0"
+description = "Ransomware recovery readiness assessment with recovery timeline for small and mid-sized organizations"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Edward Owusu"}]
+keywords = ["ransomware", "backup", "recovery", "rto", "rpo", "resilience", "nist", "cisa", "small business"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Security",
+  "Intended Audience :: Information Technology",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dashboard = ["streamlit>=1.37", "pandas>=2.0"]
+
+[project.scripts]
+ransomware-check = "ransomware_ready.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ransomware_ready = ["data/*.json"]

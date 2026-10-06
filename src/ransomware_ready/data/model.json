@@ -1,0 +1,8 @@
+{
+  "_comment": "Scoring model and organization-defined parameters. Copy, adjust, and pass with --model.",
+  "criticality_weight": {"critical": 4, "high": 3, "medium": 2, "low": 1},
+  "restore_test_max_age_days": 365,
+  "system_share": 0.6,
+  "practice_share": 0.4,
+  "bands": [[80, "Resilient"], [60, "Partially resilient"], [40, "Vulnerable"], [0, "Highly vulnerable"]]
+}
