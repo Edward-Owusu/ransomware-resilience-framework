@@ -41,6 +41,6 @@ Start from `samples/practices_template.json`. Answer each practice `yes`, `parti
 | P-09 | Administrator accounts separate from everyday accounts |
 | P-10 | Ransomware tabletop exercise in the last 12 months |
 
-In the dashboard, practices can also be set directly in the sidebar and downloaded as a file.
+In the dashboard, practices can also be set under Protective practices at the top of the page and downloaded as a file.
 
 These files describe your weaknesses. Store them and the reports securely.
