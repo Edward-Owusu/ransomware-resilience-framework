@@ -77,7 +77,7 @@ ransomware-check systems.csv --practices practices.json --fail-below 60
 ## Assessing your own organization
 
 1. List your critical systems in a copy of `samples/systems_template.csv`, with business targets and backup details, as described in the [input reference](docs/data-reference.md).
-2. Answer the ten practices in `samples/practices_template.json`, or set them in the dashboard sidebar.
+2. Answer the ten practices in `samples/practices_template.json`, or set them under **Protective practices** at the top of the dashboard.
 3. Run the tool, fix the top findings, and run a timed restore test to replace estimates with measurements.
 
 ## Related projects
